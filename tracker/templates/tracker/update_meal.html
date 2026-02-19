@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Öğün Güncelle</title>
+</head>
+<body>
+    <h2>{{ meal.name }} Güncelle</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Kaydet</button>
+    </form>
+    <br>
+    <a href="{% url 'meal_list' %}">İptal et ve Geri Dön</a>
+</body>
+</html>

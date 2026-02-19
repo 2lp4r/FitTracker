@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FitTracker - Günlük</title>
+</head>
+<body>
+    <h1>FitTracker - TEST TEST TEST</h1>
+
+    <h3>Yeni Öğün Ekle</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Listeye Ekle</button>
+    </form>
+
+    <hr>
+
+    <h3>Kayıtlı Öğünlerim</h3>
+    <ul>
+        {% for meal in meals %}
+            <li>
+                <strong>{{ meal.name }}</strong><br>
+                {{ meal.calories }} kcal | Protein: {{ meal.protein }}g | Yağ: {{ meal.fat }}g | Karb: {{ meal.carbs }}g
+                <br><br>
+                <a href="{% url 'update_meal' meal.pk %}"><button>Güncelle</button></a>
+                <a href="{% url 'delete_meal' meal.pk %}"><button>Sil</button></a>
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+</body>
+</html>
