@@ -89,3 +89,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://fittracker-app-tlh.azurewebsites.net',
+    'https://fittracker-app-tlh-c2q2bmg8f4gahzay.polandcentral-01.azurewebsites.net'
+]
